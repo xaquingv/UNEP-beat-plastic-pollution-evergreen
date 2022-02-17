@@ -50177,20 +50177,20 @@ var app = (function () {
 
     function get_each_context$6(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[10] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (25:10) {#if width}
+    // (24:10) {#if width}
     function create_if_block$5(ctx) {
     	let trash;
     	let current;
 
     	trash = new Trash({
     			props: {
-    				index: /*index*/ ctx[4],
-    				width: /*width*/ ctx[5],
-    				height: /*height*/ ctx[6]
+    				index: /*index*/ ctx[3],
+    				width: /*width*/ ctx[4],
+    				height: /*height*/ ctx[5]
     			},
     			$$inline: true
     		});
@@ -50205,9 +50205,9 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const trash_changes = {};
-    			if (dirty & /*index*/ 16) trash_changes.index = /*index*/ ctx[4];
-    			if (dirty & /*width*/ 32) trash_changes.width = /*width*/ ctx[5];
-    			if (dirty & /*height*/ 64) trash_changes.height = /*height*/ ctx[6];
+    			if (dirty & /*index*/ 8) trash_changes.index = /*index*/ ctx[3];
+    			if (dirty & /*width*/ 16) trash_changes.width = /*width*/ ctx[4];
+    			if (dirty & /*height*/ 32) trash_changes.height = /*height*/ ctx[5];
     			trash.$set(trash_changes);
     		},
     		i: function intro(local) {
@@ -50228,19 +50228,19 @@ var app = (function () {
     		block,
     		id: create_if_block$5.name,
     		type: "if",
-    		source: "(25:10) {#if width}",
+    		source: "(24:10) {#if width}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:6) 
+    // (22:6) 
     function create_background_slot$2(ctx) {
     	let div1;
     	let div0;
     	let current;
-    	let if_block = /*width*/ ctx[5] && create_if_block$5(ctx);
+    	let if_block = /*width*/ ctx[4] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -50248,9 +50248,9 @@ var app = (function () {
     			div0 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "video-wrapper svelte-bynyxf");
-    			add_location(div0, file$c, 23, 10, 464);
+    			add_location(div0, file$c, 22, 10, 445);
     			attr_dev(div1, "slot", "background");
-    			add_location(div1, file$c, 22, 6, 430);
+    			add_location(div1, file$c, 21, 6, 411);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -50259,11 +50259,11 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*width*/ ctx[5]) {
+    			if (/*width*/ ctx[4]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*width*/ 32) {
+    					if (dirty & /*width*/ 16) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -50301,20 +50301,19 @@ var app = (function () {
     		block,
     		id: create_background_slot$2.name,
     		type: "slot",
-    		source: "(23:6) ",
+    		source: "(22:6) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:10) {#each text as p}
+    // (31:10) {#each text as p}
     function create_each_block$6(ctx) {
     	let section;
     	let h3;
     	let span;
-    	let raw_value = /*p*/ ctx[10].p + "";
-    	let span_class_value;
+    	let raw_value = /*p*/ ctx[9].p + "";
     	let t;
 
     	const block = {
@@ -50323,12 +50322,12 @@ var app = (function () {
     			h3 = element("h3");
     			span = element("span");
     			t = space();
-    			attr_dev(span, "class", span_class_value = "bg-text " + /*bg*/ ctx[2] + " svelte-bynyxf");
-    			add_location(span, file$c, 33, 31, 728);
+    			attr_dev(span, "class", "bg-text svelte-bynyxf");
+    			add_location(span, file$c, 32, 31, 709);
     			attr_dev(h3, "class", "narrow");
-    			add_location(h3, file$c, 33, 12, 709);
+    			add_location(h3, file$c, 32, 12, 690);
     			attr_dev(section, "class", "step svelte-bynyxf");
-    			add_location(section, file$c, 32, 10, 674);
+    			add_location(section, file$c, 31, 10, 655);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
@@ -50338,11 +50337,7 @@ var app = (function () {
     			append_dev(section, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[10].p + "")) span.innerHTML = raw_value;
-    			if (dirty & /*bg*/ 4 && span_class_value !== (span_class_value = "bg-text " + /*bg*/ ctx[2] + " svelte-bynyxf")) {
-    				attr_dev(span, "class", span_class_value);
-    			}
-    		},
+    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[9].p + "")) span.innerHTML = raw_value;		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(section);
     		}
@@ -50352,14 +50347,14 @@ var app = (function () {
     		block,
     		id: create_each_block$6.name,
     		type: "each",
-    		source: "(32:10) {#each text as p}",
+    		source: "(31:10) {#each text as p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:6) 
+    // (30:6) 
     function create_foreground_slot$2(ctx) {
     	let div;
     	let each_value = /*text*/ ctx[1];
@@ -50379,7 +50374,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "slot", "foreground");
-    			add_location(div, file$c, 30, 6, 612);
+    			add_location(div, file$c, 29, 6, 593);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -50389,7 +50384,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*bg, text*/ 6) {
+    			if (dirty & /*text*/ 2) {
     				each_value = /*text*/ ctx[1];
     				validate_each_argument(each_value);
     				let i;
@@ -50423,7 +50418,7 @@ var app = (function () {
     		block,
     		id: create_foreground_slot$2.name,
     		type: "slot",
-    		source: "(31:6) ",
+    		source: "(30:6) ",
     		ctx
     	});
 
@@ -50439,14 +50434,14 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	add_render_callback(/*onwindowresize*/ ctx[7]);
+    	add_render_callback(/*onwindowresize*/ ctx[6]);
 
     	function scroller_progress_binding(value) {
-    		/*scroller_progress_binding*/ ctx[8](value);
+    		/*scroller_progress_binding*/ ctx[7](value);
     	}
 
     	function scroller_index_binding(value) {
-    		/*scroller_index_binding*/ ctx[9](value);
+    		/*scroller_index_binding*/ ctx[8](value);
     	}
 
     	let scroller_props = {
@@ -50459,12 +50454,12 @@ var app = (function () {
     		$$scope: { ctx }
     	};
 
-    	if (/*progress*/ ctx[3] !== void 0) {
-    		scroller_props.progress = /*progress*/ ctx[3];
+    	if (/*progress*/ ctx[2] !== void 0) {
+    		scroller_props.progress = /*progress*/ ctx[2];
     	}
 
-    	if (/*index*/ ctx[4] !== void 0) {
-    		scroller_props.index = /*index*/ ctx[4];
+    	if (/*index*/ ctx[3] !== void 0) {
+    		scroller_props.index = /*index*/ ctx[3];
     	}
 
     	scroller = new Scroller({ props: scroller_props, $$inline: true });
@@ -50476,7 +50471,7 @@ var app = (function () {
     			section = element("section");
     			create_component(scroller.$$.fragment);
     			attr_dev(section, "class", section_class_value = "full " + /*type*/ ctx[0] + " diagram" + " svelte-bynyxf");
-    			add_location(section, file$c, 14, 0, 289);
+    			add_location(section, file$c, 13, 0, 270);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -50487,26 +50482,26 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(window, "resize", /*onwindowresize*/ ctx[7]);
+    				dispose = listen_dev(window, "resize", /*onwindowresize*/ ctx[6]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
     			const scroller_changes = {};
 
-    			if (dirty & /*$$scope, text, bg, index, width, height*/ 8310) {
+    			if (dirty & /*$$scope, text, index, width, height*/ 4154) {
     				scroller_changes.$$scope = { dirty, ctx };
     			}
 
-    			if (!updating_progress && dirty & /*progress*/ 8) {
+    			if (!updating_progress && dirty & /*progress*/ 4) {
     				updating_progress = true;
-    				scroller_changes.progress = /*progress*/ ctx[3];
+    				scroller_changes.progress = /*progress*/ ctx[2];
     				add_flush_callback(() => updating_progress = false);
     			}
 
-    			if (!updating_index && dirty & /*index*/ 16) {
+    			if (!updating_index && dirty & /*index*/ 8) {
     				updating_index = true;
-    				scroller_changes.index = /*index*/ ctx[4];
+    				scroller_changes.index = /*index*/ ctx[3];
     				add_flush_callback(() => updating_index = false);
     			}
 
@@ -50549,33 +50544,31 @@ var app = (function () {
     	validate_slots("RainingTrash", slots, []);
     	let { type } = $$props;
     	let { text } = $$props;
-    	let { bg } = $$props;
     	let progress, index = 0, width, height;
-    	const writable_props = ["type", "text", "bg"];
+    	const writable_props = ["type", "text"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<RainingTrash> was created with unknown prop '${key}'`);
     	});
 
     	function onwindowresize() {
-    		$$invalidate(5, width = window.innerWidth);
-    		$$invalidate(6, height = window.innerHeight);
+    		$$invalidate(4, width = window.innerWidth);
+    		$$invalidate(5, height = window.innerHeight);
     	}
 
     	function scroller_progress_binding(value) {
     		progress = value;
-    		$$invalidate(3, progress);
+    		$$invalidate(2, progress);
     	}
 
     	function scroller_index_binding(value) {
     		index = value;
-    		$$invalidate(4, index);
+    		$$invalidate(3, index);
     	}
 
     	$$self.$$set = $$props => {
     		if ("type" in $$props) $$invalidate(0, type = $$props.type);
     		if ("text" in $$props) $$invalidate(1, text = $$props.text);
-    		if ("bg" in $$props) $$invalidate(2, bg = $$props.bg);
     	};
 
     	$$self.$capture_state = () => ({
@@ -50583,7 +50576,6 @@ var app = (function () {
     		Trash,
     		type,
     		text,
-    		bg,
     		progress,
     		index,
     		width,
@@ -50593,11 +50585,10 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("type" in $$props) $$invalidate(0, type = $$props.type);
     		if ("text" in $$props) $$invalidate(1, text = $$props.text);
-    		if ("bg" in $$props) $$invalidate(2, bg = $$props.bg);
-    		if ("progress" in $$props) $$invalidate(3, progress = $$props.progress);
-    		if ("index" in $$props) $$invalidate(4, index = $$props.index);
-    		if ("width" in $$props) $$invalidate(5, width = $$props.width);
-    		if ("height" in $$props) $$invalidate(6, height = $$props.height);
+    		if ("progress" in $$props) $$invalidate(2, progress = $$props.progress);
+    		if ("index" in $$props) $$invalidate(3, index = $$props.index);
+    		if ("width" in $$props) $$invalidate(4, width = $$props.width);
+    		if ("height" in $$props) $$invalidate(5, height = $$props.height);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -50607,7 +50598,6 @@ var app = (function () {
     	return [
     		type,
     		text,
-    		bg,
     		progress,
     		index,
     		width,
@@ -50621,7 +50611,7 @@ var app = (function () {
     class RainingTrash extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init$1(this, options, instance$f, create_fragment$f, safe_not_equal, { type: 0, text: 1, bg: 2 });
+    		init$1(this, options, instance$f, create_fragment$f, safe_not_equal, { type: 0, text: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -50640,10 +50630,6 @@ var app = (function () {
     		if (/*text*/ ctx[1] === undefined && !("text" in props)) {
     			console.warn("<RainingTrash> was created without expected prop 'text'");
     		}
-
-    		if (/*bg*/ ctx[2] === undefined && !("bg" in props)) {
-    			console.warn("<RainingTrash> was created without expected prop 'bg'");
-    		}
     	}
 
     	get type() {
@@ -50659,14 +50645,6 @@ var app = (function () {
     	}
 
     	set text(value) {
-    		throw new Error("<RainingTrash>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get bg() {
-    		throw new Error("<RainingTrash>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set bg(value) {
     		throw new Error("<RainingTrash>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -51141,7 +51119,7 @@ var app = (function () {
 
     function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[16] = list[i];
     	return child_ctx;
     }
 
@@ -51171,11 +51149,11 @@ var app = (function () {
     			div1 = element("div");
     			create_component(video_1.$$.fragment);
     			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*type*/ ctx[0] === "intro" ? "" : "gradient") + " svelte-178293r"));
-    			add_location(div0, file$a, 24, 8, 561);
+    			add_location(div0, file$a, 24, 8, 575);
     			attr_dev(div1, "class", "video-wrapper svelte-178293r");
-    			add_location(div1, file$a, 25, 8, 624);
+    			add_location(div1, file$a, 25, 8, 638);
     			attr_dev(div2, "slot", "background");
-    			add_location(div2, file$a, 23, 4, 529);
+    			add_location(div2, file$a, 23, 4, 543);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -51228,7 +51206,7 @@ var app = (function () {
     		c: function create() {
     			h2 = element("h2");
     			attr_dev(h2, "class", "narrow");
-    			add_location(h2, file$a, 38, 14, 1101);
+    			add_location(h2, file$a, 38, 14, 1115);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -51260,7 +51238,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			attr_dev(h1, "class", "narrow");
-    			add_location(h1, file$a, 36, 14, 1028);
+    			add_location(h1, file$a, 36, 14, 1042);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -51301,12 +51279,12 @@ var app = (function () {
     			section = element("section");
     			if_block.c();
     			attr_dev(section, "class", "step svelte-178293r");
-    			add_location(section, file$a, 34, 8, 934);
+    			add_location(section, file$a, 34, 8, 948);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			if_block.m(section, null);
-    			/*section_binding*/ ctx[11](section);
+    			/*section_binding*/ ctx[12](section);
     		},
     		p: function update(ctx, dirty) {
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
@@ -51324,7 +51302,7 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(section);
     			if_block.d();
-    			/*section_binding*/ ctx[11](null);
+    			/*section_binding*/ ctx[12](null);
     		}
     	};
 
@@ -51411,16 +51389,16 @@ var app = (function () {
     function create_else_block$1(ctx) {
     	let h3;
     	let span;
-    	let raw_value = /*p*/ ctx[15].p + "";
+    	let raw_value = /*p*/ ctx[16].p + "";
 
     	const block = {
     		c: function create() {
     			h3 = element("h3");
     			span = element("span");
     			attr_dev(span, "class", "bg-text svelte-178293r");
-    			add_location(span, file$a, 48, 29, 1422);
+    			add_location(span, file$a, 48, 29, 1436);
     			attr_dev(h3, "class", "narrow");
-    			add_location(h3, file$a, 48, 10, 1403);
+    			add_location(h3, file$a, 48, 10, 1417);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -51428,7 +51406,7 @@ var app = (function () {
     			span.innerHTML = raw_value;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[15].p + "")) span.innerHTML = raw_value;		},
+    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[16].p + "")) span.innerHTML = raw_value;		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h3);
     		}
@@ -51448,20 +51426,20 @@ var app = (function () {
     // (46:10) {#if type === 'intro'}
     function create_if_block_1(ctx) {
     	let h3;
-    	let raw_value = /*p*/ ctx[15].p + "";
+    	let raw_value = /*p*/ ctx[16].p + "";
 
     	const block = {
     		c: function create() {
     			h3 = element("h3");
     			attr_dev(h3, "class", "narrow shadow svelte-178293r");
-    			add_location(h3, file$a, 46, 10, 1332);
+    			add_location(h3, file$a, 46, 10, 1346);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
     			h3.innerHTML = raw_value;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[15].p + "")) h3.innerHTML = raw_value;		},
+    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[16].p + "")) h3.innerHTML = raw_value;		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h3);
     		}
@@ -51497,7 +51475,7 @@ var app = (function () {
     			if_block.c();
     			t = space();
     			attr_dev(section, "class", "step-below svelte-178293r");
-    			add_location(section, file$a, 44, 8, 1260);
+    			add_location(section, file$a, 44, 8, 1274);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
@@ -51552,7 +51530,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	intersectionobserver.$on("observe", /*observe_handler*/ ctx[12]);
+    	intersectionobserver.$on("observe", /*observe_handler*/ ctx[13]);
     	let if_block = /*text*/ ctx[1] && create_if_block$3(ctx);
 
     	const block = {
@@ -51562,7 +51540,7 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			attr_dev(div, "slot", "foreground");
-    			add_location(div, file$a, 32, 4, 757);
+    			add_location(div, file$a, 32, 4, 771);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -51576,7 +51554,7 @@ var app = (function () {
     			if (dirty & /*element*/ 256) intersectionobserver_changes.element = /*element*/ ctx[8];
     			if (dirty & /*count*/ 32) intersectionobserver_changes.rootMargin = "" + (/*count*/ ctx[5] * 300 + "%");
 
-    			if (dirty & /*$$scope, element, head, type*/ 262405) {
+    			if (dirty & /*$$scope, element, head, type*/ 524549) {
     				intersectionobserver_changes.$$scope = { dirty, ctx };
     			}
 
@@ -51638,15 +51616,15 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	add_render_callback(/*onwindowscroll*/ ctx[9]);
-    	add_render_callback(/*onwindowresize*/ ctx[10]);
+    	add_render_callback(/*onwindowscroll*/ ctx[10]);
+    	add_render_callback(/*onwindowresize*/ ctx[11]);
 
     	function scroller_index_binding(value) {
-    		/*scroller_index_binding*/ ctx[13](value);
+    		/*scroller_index_binding*/ ctx[14](value);
     	}
 
     	function scroller_count_binding(value) {
-    		/*scroller_count_binding*/ ctx[14](value);
+    		/*scroller_count_binding*/ ctx[15](value);
     	}
 
     	let scroller_props = {
@@ -51676,7 +51654,7 @@ var app = (function () {
     			section = element("section");
     			create_component(scroller.$$.fragment);
     			attr_dev(section, "class", section_class_value = "full " + /*type*/ ctx[0] + " " + (/*type*/ ctx[0] === "intro" ? "brown" : "") + " svelte-178293r");
-    			add_location(section, file$a, 15, 0, 377);
+    			add_location(section, file$a, 15, 0, 391);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -51692,9 +51670,9 @@ var app = (function () {
     						scrolling = true;
     						clearTimeout(scrolling_timeout);
     						scrolling_timeout = setTimeout(clear_scrolling, 100);
-    						/*onwindowscroll*/ ctx[9]();
+    						/*onwindowscroll*/ ctx[10]();
     					}),
-    					listen_dev(window, "resize", /*onwindowresize*/ ctx[10])
+    					listen_dev(window, "resize", /*onwindowresize*/ ctx[11])
     				];
 
     				mounted = true;
@@ -51710,7 +51688,7 @@ var app = (function () {
 
     			const scroller_changes = {};
 
-    			if (dirty & /*$$scope, text, type, element, count, head, video*/ 262447) {
+    			if (dirty & /*$$scope, text, type, element, count, intersecting, head, video*/ 525103) {
     				scroller_changes.$$scope = { dirty, ctx };
     			}
 
@@ -51768,7 +51746,7 @@ var app = (function () {
     	let { head } = $$props;
     	let { video } = $$props;
     	let index, count = 1, y, height;
-    	let element;
+    	let element, intersecting;
     	const writable_props = ["type", "text", "head", "video"];
 
     	Object.keys($$props).forEach(key => {
@@ -51791,7 +51769,7 @@ var app = (function () {
     	}
 
     	const observe_handler = e => {
-    		intersecting = e.detail.isIntersecting;
+    		$$invalidate(9, intersecting = e.detail.isIntersecting);
     	};
 
     	function scroller_index_binding(value) {
@@ -51823,7 +51801,8 @@ var app = (function () {
     		count,
     		y,
     		height,
-    		element
+    		element,
+    		intersecting
     	});
 
     	$$self.$inject_state = $$props => {
@@ -51836,6 +51815,7 @@ var app = (function () {
     		if ("y" in $$props) $$invalidate(6, y = $$props.y);
     		if ("height" in $$props) $$invalidate(7, height = $$props.height);
     		if ("element" in $$props) $$invalidate(8, element = $$props.element);
+    		if ("intersecting" in $$props) $$invalidate(9, intersecting = $$props.intersecting);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -51852,6 +51832,7 @@ var app = (function () {
     		y,
     		height,
     		element,
+    		intersecting,
     		onwindowscroll,
     		onwindowresize,
     		section_binding,
@@ -56046,7 +56027,7 @@ var app = (function () {
     /* src/components/maps/Mapbox.svelte generated by Svelte v3.38.2 */
     const file$6 = "src/components/maps/Mapbox.svelte";
 
-    // (24:4) <Map         {style}         {version}         bind:this={map}         {options}     >
+    // (22:4) <Map         {style}         {version}         bind:this={map}         {options}     >
     function create_default_slot(ctx) {
     	let navigationcontrol;
     	let current;
@@ -56087,7 +56068,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(24:4) <Map         {style}         {version}         bind:this={map}         {options}     >",
+    		source: "(22:4) <Map         {style}         {version}         bind:this={map}         {options}     >",
     		ctx
     	});
 
@@ -56116,7 +56097,7 @@ var app = (function () {
     			div = element("div");
     			create_component(map_1.$$.fragment);
     			attr_dev(div, "class", div_class_value = "" + (/*layout*/ ctx[2] + " mapbox" + " svelte-1mgxb49"));
-    			add_location(div, file$6, 21, 0, 551);
+    			add_location(div, file$6, 19, 0, 509);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -56132,7 +56113,7 @@ var app = (function () {
     			if (dirty & /*version*/ 16) map_1_changes.version = /*version*/ ctx[4];
     			if (dirty & /*options*/ 1) map_1_changes.options = /*options*/ ctx[0];
 
-    			if (dirty & /*$$scope, options*/ 8193) {
+    			if (dirty & /*$$scope, options*/ 4097) {
     				map_1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -56182,7 +56163,6 @@ var app = (function () {
     	const { GeolocateControl, NavigationControl, ScaleControl } = controls;
     	options.showCompass = false;
     	let currentIndex = -1;
-    	let world = { center: [0, 0], zoom: 1 };
     	const writable_props = ["options"];
 
     	Object.keys($$props).forEach(key => {
@@ -56211,7 +56191,6 @@ var app = (function () {
     		NavigationControl,
     		ScaleControl,
     		currentIndex,
-    		world,
     		layout,
     		style,
     		version,
@@ -56223,7 +56202,6 @@ var app = (function () {
     		if ("options" in $$props) $$invalidate(0, options = $$props.options);
     		if ("map" in $$props) $$invalidate(1, map = $$props.map);
     		if ("currentIndex" in $$props) $$invalidate(6, currentIndex = $$props.currentIndex);
-    		if ("world" in $$props) world = $$props.world;
     		if ("layout" in $$props) $$invalidate(2, layout = $$props.layout);
     		if ("style" in $$props) $$invalidate(3, style = $$props.style);
     		if ("version" in $$props) $$invalidate(4, version = $$props.version);
@@ -56330,10 +56308,10 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			create_component(mapbox.$$.fragment);
-    			attr_dev(div0, "class", "video-wrapper svelte-vy2eae");
-    			add_location(div0, file$5, 27, 10, 587);
+    			attr_dev(div0, "class", "video-wrapper svelte-3l89cy");
+    			add_location(div0, file$5, 27, 10, 589);
     			attr_dev(div1, "slot", "background");
-    			add_location(div1, file$5, 26, 6, 553);
+    			add_location(div1, file$5, 26, 6, 555);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -56387,6 +56365,7 @@ var app = (function () {
     function create_each_block$4(ctx) {
     	let section;
     	let h3;
+    	let span;
     	let raw_value = /*p*/ ctx[5].p + "";
     	let t;
 
@@ -56394,20 +56373,24 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			h3 = element("h3");
+    			span = element("span");
     			t = space();
+    			attr_dev(span, "class", "bg-text svelte-3l89cy");
+    			add_location(span, file$5, 47, 33, 1275);
     			attr_dev(h3, "class", "narrow");
-    			add_location(h3, file$5, 47, 14, 1254);
-    			attr_dev(section, "class", "step svelte-vy2eae");
-    			add_location(section, file$5, 46, 12, 1217);
+    			add_location(h3, file$5, 47, 14, 1256);
+    			attr_dev(section, "class", "step svelte-3l89cy");
+    			add_location(section, file$5, 46, 12, 1219);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			append_dev(section, h3);
-    			h3.innerHTML = raw_value;
+    			append_dev(h3, span);
+    			span.innerHTML = raw_value;
     			append_dev(section, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[5].p + "")) h3.innerHTML = raw_value;		},
+    			if (dirty & /*text*/ 2 && raw_value !== (raw_value = /*p*/ ctx[5].p + "")) span.innerHTML = raw_value;		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(section);
     		}
@@ -56444,7 +56427,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "slot", "foreground");
-    			add_location(div, file$5, 44, 6, 1151);
+    			add_location(div, file$5, 44, 6, 1153);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -56527,8 +56510,8 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			create_component(scroller.$$.fragment);
-    			attr_dev(section, "class", section_class_value = "full " + /*type*/ ctx[0] + " svelte-vy2eae");
-    			add_location(section, file$5, 19, 0, 440);
+    			attr_dev(section, "class", section_class_value = "full " + /*type*/ ctx[0] + " svelte-3l89cy");
+    			add_location(section, file$5, 19, 0, 442);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -56553,7 +56536,7 @@ var app = (function () {
 
     			scroller.$set(scroller_changes);
 
-    			if (!current || dirty & /*type*/ 1 && section_class_value !== (section_class_value = "full " + /*type*/ ctx[0] + " svelte-vy2eae")) {
+    			if (!current || dirty & /*type*/ 1 && section_class_value !== (section_class_value = "full " + /*type*/ ctx[0] + " svelte-3l89cy")) {
     				attr_dev(section, "class", section_class_value);
     			}
     		},
@@ -56591,7 +56574,7 @@ var app = (function () {
     	let index = 0;
 
     	const steps = [
-    		{ center: [0, 0], zoom: 1.8, speed: 2 },
+    		{ center: [15, 0], zoom: 1.8, speed: 2 },
     		{
     			center: [90.5, 23.5],
     			zoom: 5,
@@ -56607,7 +56590,7 @@ var app = (function () {
     			zoom: 6,
     			speed: 0.5
     		},
-    		{ center: [0, 0], zoom: 1.8, speed: 2 }
+    		{ center: [15, 0], zoom: 1.8, speed: 2 }
     	];
 
     	const writable_props = ["type", "text"];
@@ -147674,10 +147657,10 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(article, "class", article_class_value = "" + (null_to_empty(/*lang*/ ctx[2] === "ar" ? "rtl" : "") + " svelte-4rhvmz"));
+    			attr_dev(article, "class", article_class_value = "" + (null_to_empty(/*lang*/ ctx[2] === "ar" ? "rtl" : "") + " svelte-19q81xg"));
     			attr_dev(article, "dir", article_dir_value = /*lang*/ ctx[2] === "ar" ? "rtl" : "");
     			add_location(article, file, 32, 2, 1003);
-    			attr_dev(main, "class", "svelte-4rhvmz");
+    			attr_dev(main, "class", "svelte-19q81xg");
     			add_location(main, file, 31, 0, 994);
     		},
     		l: function claim(nodes) {
@@ -147729,7 +147712,7 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (!current || dirty & /*lang*/ 4 && article_class_value !== (article_class_value = "" + (null_to_empty(/*lang*/ ctx[2] === "ar" ? "rtl" : "") + " svelte-4rhvmz"))) {
+    			if (!current || dirty & /*lang*/ 4 && article_class_value !== (article_class_value = "" + (null_to_empty(/*lang*/ ctx[2] === "ar" ? "rtl" : "") + " svelte-19q81xg"))) {
     				attr_dev(article, "class", article_class_value);
     			}
 

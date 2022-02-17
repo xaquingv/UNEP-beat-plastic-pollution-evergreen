@@ -4,7 +4,6 @@
 
     export let type;
     export let text;
-    export let bg;
 
     let progress, index = 0, width, height;
 
@@ -31,7 +30,7 @@
       <div slot='foreground'>
           {#each text as p}
           <section class='step'>
-            <h3 class='narrow'><span class='bg-text {bg}'>{@html p.p}</span></h3>
+            <h3 class='narrow'><span class='bg-text'>{@html p.p}</span></h3>
           </section>
         {/each}
       </div>

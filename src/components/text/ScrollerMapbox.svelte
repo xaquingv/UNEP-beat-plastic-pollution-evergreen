@@ -8,11 +8,11 @@
     let index = 0;
 
     const steps = [
-		  {center: [0,0], zoom:1.8, speed: 2},
+		  {center: [20,0], zoom:1.8, speed: 2},
 		  {center: [90.5,23.5], zoom:5, speed: 0.5},
 		  {center: [121.5,31.5], zoom:5, speed: 0.5},
       {center: [-90.5, 29.5], zoom:6, speed: 0.5},
-      {center: [0,0], zoom:1.8, speed: 2},
+      {center: [20,0], zoom:1.8, speed: 2},
 	  ]
 
 </script>
@@ -45,7 +45,7 @@
       <div slot='foreground'>
             {#each text as p}
             <section class='step'>
-              <h3 class='narrow'>{@html p.p}</h3>
+              <h3 class='narrow'><span class='bg-text'>{@html p.p}</span></h3>
             </section>
             {/each}
       </div>
@@ -73,7 +73,7 @@
   }
   .header { padding: 4rem 0; }
   .bg-text { 
-    background-color: rgba(0,0,0,.3);
+    background-color: #f3f3f3aa;
     padding: 0.08rem 0;
   }
   :global(.mapboxgl-ctrl-top-right) {

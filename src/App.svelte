@@ -59,6 +59,15 @@
 		text-align: right !important;
 	}
 
+	.twitter-share-button {
+		width: 1rem;
+		height: 1rem;
+		position: absolute;
+		top: 4rem;
+		left: 1rem;
+		background-color: red;
+	}
+
 	:global(.graphic) {
 		height:60vh;
 		margin-bottom:3rem;

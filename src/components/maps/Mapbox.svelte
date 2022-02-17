@@ -8,8 +8,6 @@
     options.showCompass = false;
     let currentIndex = -1;
 
-    let world = {center: [0,0], zoom: 1}
-
     $:if(map && currentIndex !== index) {
         if(index >= 0 && index < steps.length) {
             map.flyTo(steps[index]);

@@ -9,7 +9,7 @@
   export let video;
 
   let index, count = 1, y, height;
-  let element;
+  let element, intersecting;
 
 </script>
 <svelte:window bind:scrollY={y} bind:innerHeight={height} />

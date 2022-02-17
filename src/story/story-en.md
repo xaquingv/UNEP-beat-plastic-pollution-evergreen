@@ -1,4 +1,4 @@
-# Our planet is choking on plastic
+## Our planet<br/><b>is choking</b><br/>on plastic
 
 It’s time to change our ways of producing, consuming and disposing of our plastic items!
 

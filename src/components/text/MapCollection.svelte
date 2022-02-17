@@ -75,7 +75,7 @@ $:palette = () => scaleThreshold()
 h3 { padding-bottom: .5rem; }
 button {
   background-color: #e0e0e0; /* Green */
-  border: 1px solid white;
+  border: 1px solid #f3f3f3;
   color: white;
   padding: .5rem 1.6rem;
   text-align: left;
