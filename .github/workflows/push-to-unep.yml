@@ -12,11 +12,13 @@ jobs:
     container: pandoc/latex
     steps:
       - name: Push directory to another repository
+        id: push_directory
         uses: cpina/github-action-push-to-another-repository@v1.4.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           destination-github-username: 'UNEP'
           destination-repository-name: 'beat-plastic-pollution'
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           user-email: xocasgv@gmail.com
           target-branch: main
