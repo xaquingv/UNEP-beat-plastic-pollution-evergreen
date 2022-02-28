@@ -1,3 +1,21 @@
+name: PUSH_TO_UNEP
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mustache (to update the date)
+        run:  apk add ruby && gem install mustache
+      - name: creates output
+        run:  sh ./build.sh
       - name: Push directory to another repository
         uses: cpina/github-action-push-to-another-repository@v1.4.1
         env:
